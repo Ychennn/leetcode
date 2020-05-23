@@ -22,7 +22,7 @@ public class Solution21 {//单词拆分
     public static void main(String[] args) {
         ArrayList<String> arrayList = new ArrayList();
         arrayList.add("apple");
-        arrayList.add("pen");//只能测试连续的，如果在字符串前面或中间添加额外的字母，则不能有效的得出答案
+        arrayList.add("pen");//该题意为能不能把给定的字符串，拆分为都在wordDict集合中
         boolean leetcode = wordBreak("applepenapple", arrayList);
         System.out.println(leetcode);
     }

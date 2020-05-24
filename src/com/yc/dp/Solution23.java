@@ -60,7 +60,7 @@ public class Solution23 {//乘积最大子数组
     }
 
     public static void main(String[] args) {
-        int i = maxProduct2(new int[]{-3, -3, -3});
+        int i = maxProduct2(new int[]{-3, 0,-3});
         System.out.println(i);
     }
 }

@@ -1,6 +1,6 @@
 package com.yc.dp;
 
-public class Solution23 {//乘积最大子数组
+public class Solution23 {//乘积最大子数组 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
     public static int maxProduct(int[] nums) {
         /*由于负数的原因，最大值乘以负数就变成了最小值，所有使用二维数组来解题
         dp[i][j]：以 nums[i] 结尾的连续子数组的最值，计算最大值还是最小值由 j 来表示，j 就两个值；

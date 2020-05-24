@@ -22,7 +22,7 @@ public class Solution21 {//单词拆分
     public static void main(String[] args) {
         ArrayList<String> arrayList = new ArrayList();
         arrayList.add("apple");
-        arrayList.add("pen");//该题意为能不能把给定的字符串，拆分为都在wordDict集合中
+        arrayList.add("pen");//该题意为能不能把给定的字符串，全部拆分为都在wordDict集合中的字符串
         boolean leetcode = wordBreak("applepenapple", arrayList);
         System.out.println(leetcode);
     }

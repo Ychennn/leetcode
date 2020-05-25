@@ -11,7 +11,8 @@ public class Solution20 {//回文子串
             int evenCount = substring(s, i, i + 1);
             count += oddCount + evenCount;
         }
-        //这一步是因为上面ii < s.length() - 1，省略了对最后一个odd奇数的判断，如abc，少判断了以c为中心的扩展的数量
+        /*这一步是因为上面ii < s.length() - 1，省略了对最后一个odd奇数的判断，
+        如abc，少判断了以c为中心的扩展的数量*/
         return count+1;
     }
 

@@ -42,8 +42,8 @@ public class Solution22 {//统计全为 1 的正方形子矩阵
                     dp[j + 1] = Math.min(Math.min(dp[j], dp[j + 1]), pre) + 1;
                     if (dp[j + 1] > 0) count += dp[j + 1];
                 } else {
-                    dp[j + 1] = 0;
                     //必须置零，因为该位置上还保存着dp[i][j+1]的值，否者会造成错误的结果(偏大)
+                    dp[j + 1] = 0;
                 }
                 pre = tmp;
             }

@@ -37,9 +37,11 @@ public class Solution26 {//最大正方形
                     dp[j + 1] = Math.min(Math.min(dp[j], dp[j + 1]), pre) + 1;
                     index = dp[j + 1] > index ? dp[j + 1] : index;
                 } else {
+                    //必须置零，因为该位置上还保存着dp[i][j+1]的值，否者会造成错误的结果(偏大)
                     dp[j + 1] = 0;
                 }
-                pre = tmp;//如果只在这 pre = dp[j + 1];下一步使用的就不是dp[i][j]而是dp[i+1][j]了，综上使用tmp为中间量保存pre
+                //如果只在这 pre = dp[j + 1];下一步使用的就不是dp[i][j]而是dp[i+1][j]了，综上使用tmp为中间量保存pre
+                pre = tmp;
             }
         }
         return (int) Math.pow(index, 2);

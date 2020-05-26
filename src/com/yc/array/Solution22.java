@@ -51,7 +51,6 @@ public class Solution22 {//统计全为 1 的正方形子矩阵
         return count;
     }
 
-
     public static void main(String[] args) {
         int[][] ints = new int[][]{
                 {0, 1, 1, 1},

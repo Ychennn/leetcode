@@ -13,7 +13,7 @@ public class Solution24 {//剪绳子
     }
 
     public static void main(String[] args) {
-        int i = cuttingRope(4);
+        int i = cuttingRope(120);
         System.out.println(i);
     }
 }

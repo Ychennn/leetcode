@@ -7,6 +7,7 @@ public class Solution11 {//非递减数列⭐⭐⭐⭐⭐⭐
             return true;
         }
         int count = 0;
+        //分多种情况,需将当前值和前面及后面的值综合考虑
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] > nums[i + 1]) {
                 count++;

@@ -30,7 +30,8 @@ public class Solution26 {//最大正方形
         for (int i = 0; i < m; i++) {
             int pre = 0;//保存下一步对应所需的dp[i][j]
             for (int j = 0; j < n; j++) {
-                int tmp = dp[j + 1];//临时变量保存dp[i][j]给下一步使用
+                int tmp = dp[j + 1];//临时变量保存dp[i][j]给下一步使用,
+                // 如果只在这pre = dp[j + 1]; 下面的动态方程使用到的也不是正确的,使用到的是并不是dp[i][j]而是dp[i-1][j+1]
                 if (matrix[i][j] == '1') {
                     //依次对应dp[i+1][j]，dp[i][j+1]，上一行的dp[i][j]
                     dp[j + 1] = Math.min(Math.min(dp[j], dp[j + 1]), pre) + 1;
@@ -38,7 +39,7 @@ public class Solution26 {//最大正方形
                 } else {
                     dp[j + 1] = 0;
                 }
-                pre = tmp;
+                pre = tmp;//如果只在这 pre = dp[j + 1];下一步使用的就不是dp[i][j]而是dp[i+1][j]了，综上使用tmp为中间量保存pre
             }
         }
         return (int) Math.pow(index, 2);

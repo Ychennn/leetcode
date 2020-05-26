@@ -21,7 +21,7 @@ public class Solution26 {//最大正方形
         return (int) Math.pow(index, 2);
     }
 
-    public static int maximalSquare2(char[][] matrix) {//空间优化
+    public static int maximalSquare2(char[][] matrix) {//空间优化⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
         int m = matrix.length;
         if (m == 0) return 0;
         int n = matrix[0].length;

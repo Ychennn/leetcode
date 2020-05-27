@@ -1,6 +1,7 @@
 package com.yc.array;
 
 public class Solution19 {//搜索插入位置
+
     public static int searchInsert(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
@@ -26,7 +27,7 @@ public class Solution19 {//搜索插入位置
     }
 
     public static void main(String[] args) {
-        int i = searchInsert(new int[]{0,1, 3,5}, 4);
+        int i = searchInsert(new int[]{0, 1, 3, 5}, 4);
         System.out.println(i);
     }
 }

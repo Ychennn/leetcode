@@ -23,7 +23,7 @@ public class Solution7 {//连续子数组的最大和
         int max = nums[0];
         for (int i = 1; i < nums.length; i++) {
             nums[i] += Math.max(nums[i - 1], 0);
-            max = Math.max(max,nums[i]);
+            max = Math.max(max, nums[i]);
         }
         return max;
     }

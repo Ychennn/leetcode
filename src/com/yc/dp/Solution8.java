@@ -1,6 +1,7 @@
 package com.yc.dp;
 
 public class Solution8 {//按摩师
+
     public static int massage(int[] nums) {
         int[] dp = new int[nums.length + 2];
         for (int i = 0; i < nums.length; i++) {

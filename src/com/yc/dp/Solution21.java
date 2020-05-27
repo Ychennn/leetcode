@@ -3,6 +3,7 @@ package com.yc.dp;
 import java.util.*;
 
 public class Solution21 {//单词拆分
+
     public static boolean wordBreak(String s, List<String> wordDict) {
         Set<String> wordDictSet = new HashSet(wordDict);
         boolean[] dp = new boolean[s.length() + 1];

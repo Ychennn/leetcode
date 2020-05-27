@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution16 {//可被5整除的二进制前缀
+
     public static List<Boolean> prefixesDivBy5(int[] A) {
         ArrayList<Boolean> booleans = new ArrayList();
         int tail = 0;

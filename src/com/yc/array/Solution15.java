@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Solution15 {//四数之和
+
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
         /*当数组为null或元素小于4个时，直接返回*/
@@ -79,7 +80,7 @@ public class Solution15 {//四数之和
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> lists = fourSum(new int[]{1, 0, -1, 0, -2, 2},0);
+        List<List<Integer>> lists = fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0);
         System.out.println(lists);
     }
 }

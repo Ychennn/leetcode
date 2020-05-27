@@ -1,6 +1,6 @@
 package com.yc.dp;
 
-public class Solution25 {//打家劫舍II ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+public class Solution25 {//打家劫舍II⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
     public static int rob(int[] nums) {
         /*因为首尾相连，因此可以把此环状排列房间问题约化为两个单排排列房间子问题：

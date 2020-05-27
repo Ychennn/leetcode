@@ -1,6 +1,7 @@
 package com.yc.dp;
 
 public class Solution4 {//爬楼梯
+
     public static int climbStairs(int n) {
         if (n == 1) {
             return 1;

@@ -1,6 +1,7 @@
 package com.yc.array;
 
 public class Solution28 {//最大子序和
+
     public static int maxSubArray(int[] nums) {//暴力法
         int sum;
         int max = Integer.MIN_VALUE;

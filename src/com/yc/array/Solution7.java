@@ -1,6 +1,7 @@
 package com.yc.array;
 
 public class Solution7 {//买股票的最佳时机
+
     public static int maxProfit(int prices[]) {
         int maxProfit = 0;
         int minPrice = Integer.MAX_VALUE;
@@ -17,6 +18,6 @@ public class Solution7 {//买股票的最佳时机
     public static void main(String[] args) {
         int[] ints = {7, 1, 5, 3, 6, 4};
         int i = maxProfit(ints);
-        System.out.println("最大利润为："+i);
+        System.out.println("最大利润为：" + i);
     }
 }

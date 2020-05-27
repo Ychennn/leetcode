@@ -4,6 +4,7 @@ package com.yc.array;
 import java.util.Arrays;
 
 public class Solution24 {//在排序数组中查找元素的第一个和最后一个位置⭐⭐⭐⭐⭐⭐⭐
+
     public static int[] searchRange(int[] nums, int target) {
         int a = search(nums, target);
         int b = search(nums, target + 1);

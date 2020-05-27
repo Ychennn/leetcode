@@ -1,6 +1,7 @@
 package com.yc.array;
 
 public class Solution12 {//总持续时间可被60整除的歌曲
+
     public static int numPairsDivisibleBy60(int[] time) {
         int[] seconds = new int[60];
         for (int i : time) {

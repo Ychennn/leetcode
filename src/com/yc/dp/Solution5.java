@@ -1,6 +1,7 @@
 package com.yc.dp;
 
 public class Solution5 {//打家劫舍⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
     public static int rob(int[] nums) {
         int[] dp = new int[nums.length + 2];
         for (int i = 0; i < nums.length; i++) {

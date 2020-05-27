@@ -1,6 +1,6 @@
 package com.yc.dp;
 
-public class Solution15 {//硬币   ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐背包问题
+public class Solution15 {//硬币⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐背包问题
 
     public static int waysToChange(int n) {//二维数组法
         int[] coins = new int[]{1, 5, 10, 25};//硬币必须为非递减的

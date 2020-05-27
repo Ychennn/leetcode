@@ -3,7 +3,8 @@ package com.yc.dp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution19 {//三角形最小路径和 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+public class Solution19 {//三角形最小路径和⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
     public static int minimumTotal(List<List<Integer>> triangle) {//动态规划
         //特别值处理
         if (triangle == null || triangle.size() == 0) {

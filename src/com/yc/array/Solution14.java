@@ -3,6 +3,7 @@ package com.yc.array;
 import java.util.Arrays;
 
 public class Solution14 {//数组中的K-diff数对
+
     public static int findPairs(int[] nums, int k) {//自己的方法
         Arrays.sort(nums);
         int index;

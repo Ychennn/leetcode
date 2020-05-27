@@ -1,6 +1,7 @@
 package com.yc.dp;
 
 public class Solution20 {//回文子串
+
     public static int countSubstrings(String s) {
         if (s.length() <= 1) {
             return s.length();
@@ -13,7 +14,7 @@ public class Solution20 {//回文子串
         }
         /*这一步是因为上面ii < s.length() - 1，省略了对最后一个odd奇数的判断，
         如abc，少判断了以c为中心的扩展的数量*/
-        return count+1;
+        return count + 1;
     }
 
     public static int substring(String s, int left, int right) {

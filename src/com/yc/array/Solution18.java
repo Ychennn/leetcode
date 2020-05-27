@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution18 {//幂集
+
     public static List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> subsets = new ArrayList<>();
         int count = (int) Math.pow(2, nums.length);//转换成对应的二进制，该位为1，加入集合

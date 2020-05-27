@@ -14,10 +14,10 @@ public class Solution11 {//非递减数列⭐⭐⭐⭐⭐⭐
                 if (count > 1) {
                     break;
                 }
-                if (i> 0 && nums[i - 1] >nums[i + 1]) {
-                    nums[i+1] = nums[i];
-                }else {
-                    nums[i] = nums[i+1];
+                if (i > 0 && nums[i - 1] > nums[i + 1]) {
+                    nums[i + 1] = nums[i];
+                } else {
+                    nums[i] = nums[i + 1];
                 }
             }
         }

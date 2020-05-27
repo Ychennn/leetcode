@@ -36,7 +36,7 @@ public class Solution28 {//零钱兑换⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
 
     public static void main(String[] args) {
         int[] coins = new int[]{1, 2, 5};
-        int i = coinChange2(coins, 6);
+        int i = coinChange2(coins, 11);
         System.out.println(i);
     }
 }

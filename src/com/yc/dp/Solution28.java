@@ -9,7 +9,7 @@ public class Solution28 {//零钱兑换⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
         Arrays.fill(dp, Integer.MAX_VALUE);//表示不能兑换该价值的零钱
         dp[0] = 0;//这一步初始化0
         for (int i = 1; i < amount + 1; i++) {
-            for (int j = 0; j < coins.length; j++) {
+            for (int j = 0; j < coins.length; j++) {//该层循环可以看做此次内循环只使用前i种硬币兑换
                 //必须为>=0,否者会出现如1,2,5等不能被兑换
                 if (i - coins[j] >= 0 && dp[i - coins[j]] != Integer.MAX_VALUE) {
                     //转换方程如11-->dp[10]+1,dp[9]+2,dp[6]+5

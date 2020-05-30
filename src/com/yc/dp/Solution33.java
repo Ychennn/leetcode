@@ -72,7 +72,7 @@ public class Solution33 {//分割等和子集
         int target = sum / 2;
         boolean[] dp = new boolean[target + 1];
         dp[0] = true;
-        if (nums[0] <= target) dp[nums[0]] = true;
+        if (nums[0] <= target) dp[nums[0]] = true;//<= 防止{1,1}类似
 
         for (int i = 1; i < len; i++) {
             for (int j = target; nums[i] <= j; j--) {//j = target; nums[i] <= j 如果j>nums[i]直接下一个循环
@@ -96,7 +96,7 @@ public class Solution33 {//分割等和子集
 
     public static void main(String[] args) {
 //        boolean b = canPartition3(new int[]{1, 2, 3, 4, 5, 6, 7});
-        boolean b = canPartition3(new int[]{2, 2, 3, 5});
+        boolean b = canPartition3(new int[]{1, 1});
         System.out.println(b);
     }
 }

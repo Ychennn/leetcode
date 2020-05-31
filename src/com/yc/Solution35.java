@@ -20,6 +20,7 @@ public class Solution35 {//最长上升子序列⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
         for (int i = 1; i < len; i++) {
             for (int j = 0; j < i; j++) {
                 if (nums[j] < nums[i]) {
+                    //因为dp[j]代表以nums[j]结尾的最大值,而nums[j] < nums[i]所以最大值+1
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution4 {//组合总和||
+public class Solution4 {//组合总和2
     List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {

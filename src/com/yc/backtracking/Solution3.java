@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Solution3 {//组合总和⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
     //因为每个元素可以重复使用,所以candidates未包含重复元素
-    //不同于组合总和II即Solution4
+    //不同于组合总和2即Solution4
     List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {

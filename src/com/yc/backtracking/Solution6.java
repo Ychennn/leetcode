@@ -3,7 +3,7 @@ package com.yc.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6 {//子集
+public class Solution6 {//子集⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
     public List<List<Integer>> subsets(int[] nums) {//二进制求解,为采用递归
         List<List<Integer>> result = new ArrayList();

@@ -34,10 +34,12 @@ public class Solution6 {//复原ip地址⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
         return res > 255 ? -1 : res;//超过255返回-1*/
     }
 
-
-    //splitCounts: 已经分割出多少个ip段；
-    //begin: 截取 ip 段的起始位置；
-    //path: 记录从根结点到叶子结点的一个路径(回溯算法常规变量)
+    /**
+     * @param s           传入的字符串
+     * @param splitCounts 已经分割出多少个ip段
+     * @param begin       截取ip段的起始位置
+     * @param path        记录从根结点到叶子结点的一个路径(回溯算法常规变量)
+     */
     private void dfs(String s, int splitCounts, int begin, List<String> path) {
         if (splitCounts == 4) {
             if (begin == s.length()) {

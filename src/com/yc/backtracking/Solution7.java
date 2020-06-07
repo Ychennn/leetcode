@@ -3,31 +3,57 @@ package com.yc.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution7 {//格雷编码
+public class Solution7 {//子集⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-    //设 nn阶格雷码集合为G(n),则G(n+1)阶格雷码为:
-    //给 G(n)阶格雷码每个元素二进制形式前面添加0,得到G'(n)
-    //设 G(n)合倒序(镜像)为 R(n),给 R(n)每个元素二进制形式前面添加1，得到 R'(n)
-    //G(n+1)=G'(n)∪R'(n)拼接两个集合即可得到下一阶格雷码
-    //如1 --> 0,1    2 --> 0,1,2+1,2+0
-    public List<Integer> grayCode(int n) {//二进制
-        List<Integer> res = new ArrayList<Integer>() {{
-            add(0);
-        }};//--->res.add(0);初始化n==0的值
-
-        int head = 1;
-        for (int i = 1; i <= n; i++) {
-            for (int j = res.size() - 1; j >= 0; j--) {
-                res.add(head + res.get(j));
+    public List<List<Integer>> subsets(int[] nums) {//二进制求解,未采用递归
+        List<List<Integer>> result = new ArrayList();
+        int numLen = nums.length;
+        int resultLen = (int) Math.pow(2, numLen);
+        for (int i = 0; i < resultLen; i++) {
+            ArrayList<Integer> list = new ArrayList();
+            for (int j = 0; j < numLen; j++) {
+                if (((i >> j) & 1) != 0) {
+                    list.add(nums[j]);
+                }
             }
-            head <<= 1;//左移1位
+            result.add(list);
         }
-        return res;
+        return result;
+    }
+
+
+    List<List<Integer>> result2 = new ArrayList<>();
+
+    public List<List<Integer>> subsets2(int[] nums) {
+        ArrayList<Integer> list = new ArrayList<>();
+        backtracks(nums, 0, list);
+        return result2;
+    }
+
+    public void backtracks(int[] nums, int index, List<Integer> list) {
+        if (index == nums.length) {
+            //这一步为什么需new Arraylist(list)
+            //因为直接加入list,实际上加入的地址
+            //后面又对它修改list.remove(list.size() - 1);
+            //会造成元素为空
+            result2.add(new ArrayList(list));
+            return;
+        }
+
+        //不选择当前元素,直接跳过,进行下一次递归
+        backtracks(nums, index + 1, list);
+
+        //选择当前元素,加入集合,进行下一次递归
+        list.add(nums[index]);
+        backtracks(nums, index + 1, list);
+
+        //回退操作,移除list中的末尾元素
+        list.remove(list.size() - 1);
     }
 
     public static void main(String[] args) {
         Solution7 solution7 = new Solution7();
-        List<Integer> list = solution7.grayCode(2);
-        System.out.println(list);
+        List<List<Integer>> subsets = solution7.subsets2(new int[]{1, 2, 3});
+        System.out.println(subsets);
     }
 }

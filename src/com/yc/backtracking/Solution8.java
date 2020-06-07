@@ -3,50 +3,31 @@ package com.yc.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution8 {//全排列⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
-    List<List<Integer>> result = new ArrayList();
+public class Solution8 {//格雷编码
 
-    public List<List<Integer>> permute(int[] nums) {
-        if (nums.length == 0 || nums == null) {
-            return result;
-        }
+    //设 nn阶格雷码集合为G(n),则G(n+1)阶格雷码为:
+    //给 G(n)阶格雷码每个元素二进制形式前面添加0,得到G'(n)
+    //设 G(n)合倒序(镜像)为 R(n),给 R(n)每个元素二进制形式前面添加1，得到 R'(n)
+    //G(n+1)=G'(n)∪R'(n)拼接两个集合即可得到下一阶格雷码
+    //如1 --> 0,1    2 --> 0,1,2+1,2+0
+    public List<Integer> grayCode(int n) {//二进制
+        List<Integer> res = new ArrayList<Integer>() {{
+            add(0);
+        }};//--->res.add(0);初始化n==0的值
 
-        boolean[] used = new boolean[nums.length];
-        ArrayList<Integer> list = new ArrayList();
-        int depth = 0;
-        dfs(nums, 0, used, list);
-        return result;
-    }
-
-    /**
-     * @param nums  操作的对应数组
-     * @param depth list的长度
-     * @param used  标记是否使用过对应的nums[i]元素
-     * @param list  中间量临时保存加入的数据
-     */
-    private void dfs(int[] nums, int depth, boolean[] used, ArrayList<Integer> list) {//深度优先遍历+状态重置+剪枝
-        if (depth == nums.length) {//当满足条件,加入到result中,并返回
-            result.add(new ArrayList(list));
-            return;
-        }
-
-        for (int i = 0; i < nums.length; i++) {//每一轮代表以nums[i]为头元素进行dfs
-            if (!used[i]) {//当前元素未使用过
-
-                list.add(nums[i]);//加入list中
-                used[i] = true;//把对应的used的boolean数组为置为true
-
-                dfs(nums, depth + 1, used, list);//递归调用
-
-                used[i] = false;//撤销操作
-                list.remove(list.size() - 1);//移除list末尾的元素,进行下一轮操作
+        int head = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = res.size() - 1; j >= 0; j--) {
+                res.add(head + res.get(j));
             }
+            head <<= 1;//左移1位
         }
+        return res;
     }
 
     public static void main(String[] args) {
         Solution8 solution8 = new Solution8();
-        List<List<Integer>> permute = solution8.permute(new int[]{1, 2, 3});
-        System.out.println(permute);
+        List<Integer> list = solution8.grayCode(2);
+        System.out.println(list);
     }
 }

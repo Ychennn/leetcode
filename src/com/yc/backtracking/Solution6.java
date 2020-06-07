@@ -12,7 +12,7 @@ public class Solution6 {//复原ip地址⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
         }
 
         //中间量
-        List<String> path = new ArrayList<>(4);
+        List<String> path = new ArrayList<>();
         dfs(s, 0, 0, path);
         return result;
     }

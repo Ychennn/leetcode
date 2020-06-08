@@ -39,7 +39,7 @@ public class Solution12 {//组合
         for (int i = start; i <= n; i++) {
             list.add(i);
             recursion(i + 1, k, n, list);
-
+            //撤销当前操作
             list.remove(list.size() - 1);
         }
     }

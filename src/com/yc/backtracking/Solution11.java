@@ -9,7 +9,8 @@ public class Solution11 {//括号生成
     public List<String> generateParenthesis(int n) {
         if (n == 0) {
             return result;
-        }
+        }//也可以使用StringBuilder,效率会高一些,
+        //但下面对应的left>0||right>0,需要添加撤销操作stb.deleteCharAt(stb.length()-1);
         dfs("", n, n);
         return result;
     }
@@ -23,7 +24,7 @@ public class Solution11 {//括号生成
     private void dfs(String currStr, int left, int right) {//深度优先遍历
 
         if (left == 0 && right == 0) {//当左右括号都使用完,将结果加入result,并结束递归
-            result.add(currStr);//
+            result.add(currStr);
         }
 
         if (left > right) {//当左边括号可使用数>右边,直接返回

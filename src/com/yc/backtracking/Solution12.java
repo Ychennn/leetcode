@@ -23,12 +23,11 @@ public class Solution12 {//组合
      * @param n     即能选用的最大值
      * @param list  中间量,临时保存元素
      */
-    private void recursion(int start, int k, int n, List<Integer> list) {//自己方法效率低
+    private void recursion(int start, int k, int n, List<Integer> list) {//自己的方法效率低
         if (list.size() == k) {
             result.add(new ArrayList(list));
             return;
         }
-
 
         //剪枝操作优化,可省略,在递归调用时,如n=4&k=3
         //此时第一位选择了3不满足直接return;

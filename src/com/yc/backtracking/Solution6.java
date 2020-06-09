@@ -35,34 +35,34 @@ public class Solution6 {//复原ip地址⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
     }
 
     /**
-     * @param s           传入的字符串
+     * @param str           传入的字符串
      * @param splitCounts 已经分割出多少个ip段
      * @param begin       截取ip段的起始位置
      * @param path        记录从根结点到叶子结点的一个路径(回溯算法常规变量)
      */
-    private void dfs(String s, int splitCounts, int begin, List<String> path) {
+    private void dfs(String str, int splitCounts, int begin, List<String> path) {
         if (splitCounts == 4) {
-            if (begin == s.length()) {
+            if (begin == str.length()) {
                 result.add(String.join(".", path));
             } else return;
         }
 
         //判断剩下的够不够,否则就退出(剪枝)⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
         //len-begin表示剩余的还未分割的字符串的位数,最小长度为1,最大长度为3
-        if (s.length() - begin < (4 - splitCounts) || s.length() - begin > 3 * (4 - splitCounts)) {
+        if (str.length() - begin < (4 - splitCounts) || str.length() - begin > 3 * (4 - splitCounts)) {
             return;
         }
 
         for (int i = begin; i < begin + 3; i++) {
-            if (i >= s.length()) {
+            if (i >= str.length()) {
                 break;
             }
 
-            int ipSegment = judgeIfIpSegment(s, begin, i);
+            int ipSegment = judgeIfIpSegment(str, begin, i);
             if (ipSegment != -1) {
                 //在判断是ip段的情况下,才去做截取,转换成字符串,并添加到path中
                 path.add(ipSegment + "");
-                dfs(s, splitCounts + 1, i + 1, path);
+                dfs(str, splitCounts + 1, i + 1, path);
                 path.remove(path.size() - 1);//移除末尾元素进行下一轮循环
             }
         }

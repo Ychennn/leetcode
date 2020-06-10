@@ -53,6 +53,8 @@ public class Solution10 {//全排列2
         }
     }
 
+
+
     public static void main(String[] args) {
         Solution10 solution10 = new Solution10();
         List<List<Integer>> permute = solution10.permuteUnique(new int[]{1, 1, 2});

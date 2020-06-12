@@ -26,7 +26,7 @@ public class Solution17 {//电话号码的字母组合⭐⭐⭐⭐⭐⭐⭐⭐�
     /**
      * @param digits 目标字符串,即letterCombinations(.)的传入参数
      * @param stb    中间量,临时保存加入的字符
-     * @param index  索引，表示当前进行到digits的第多少位
+     * @param index  索引,表示当前进行到digits的第多少位
      */
     private void iterStr(String digits, StringBuilder stb, int index) {
         if (index == digits.length()) {

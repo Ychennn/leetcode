@@ -5,7 +5,8 @@ public class Solution19 {//单词搜索⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
     //标记对应元素是否被使用过
     private boolean[][] marked;
 
-    //direction决定了如果符合当前条件,下一步走哪,该数组中元素的顺序会影响到递归的顺序
+    //direction决定了如果符合当前条件,下一步走哪
+    // 该数组中元素的顺序会影响到递归的顺序，该数字的顺序是右-->下-->左-->上
     private int[][] direction = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     private int m;//board的行数
     private int n;//board的列数
@@ -34,7 +35,7 @@ public class Solution19 {//单词搜索⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
     }
 
     private boolean dfs(int i, int j, int start) {
-        if (start == word.length() - 1) {
+        if (start == word.length() - 1) {//对最后一个元素判断
             return board[i][j] == word.charAt(start);
         }
 

@@ -35,7 +35,7 @@ public class Solution6 {//分割平衡字符串
                 RCount++;
             }
 
-            if (LCount > 0 && RCount > 0 && LCount == RCount) {
+            if (RCount > 0 && LCount == RCount) {
                 count++;
                 RCount = 0;
                 LCount = 0;

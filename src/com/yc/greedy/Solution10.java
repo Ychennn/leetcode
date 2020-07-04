@@ -1,6 +1,7 @@
 package com.yc.greedy;
 
-public class Solution10 {
+public class Solution10 {//买卖股票的最佳时机II
+
     public int maxProfit(int[] prices) {//动态规划效率低
         int pre0 = 0;//代表前一天不持股的最大利润
         int pre1 = -prices[0];//代表前一天持股的最大利润

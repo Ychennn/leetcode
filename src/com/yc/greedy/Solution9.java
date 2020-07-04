@@ -1,9 +1,9 @@
 package com.yc.greedy;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Solution9 {
+public class Solution9 {//K 次取反后最大化的数组和⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
     public int largestSumAfterKNegations(int[] A, int K) {//多次排序,效率低
         for (int i = 0; i < K; i++) {
             Arrays.sort(A);
@@ -46,7 +46,7 @@ public class Solution9 {
         int len = A.length;
         int minIndex = 0; //最小值索引,初始第一个最小
         while (K > 0) {
-            A[minIndex] = -A[minIndex]; //最小者取反
+            A[minIndex] = -A[minIndex]; //最小值取反
             K--;
             //维护最小值索引
             //若后面还有数,则看当前的与下一个谁更小

@@ -2,7 +2,30 @@ package com.yc.greedy;
 
 public class Solution11 {//摆动序列⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-    public int wiggleMaxLength(int[] nums) {//贪心算法
+    public int wiggleMaxLength(int[] nums) {//动态规划
+        if (nums.length < 2) return nums.length;
+
+        //up[i]代表以nums[i]为最后一个元素的上升子序列
+        int[] up = new int[nums.length];
+        //down[i]代表以nums[i]为最后一个元素的下降子序列
+        int[] down = new int[nums.length];
+
+        for (int i = 1; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    up[i] = Math.max(up[i], down[j] + 1);
+                } else if (nums[i] < nums[j]) {
+                    down[i] = Math.max(down[i], up[j] + 1);
+                }
+            }
+        }
+
+        //加一是因为,数组未初始化为1,本身的值并未计算在内，所有加一
+        return Math.max(up[nums.length - 1], down[nums.length - 1]) + 1;
+    }
+
+
+    public int wiggleMaxLength2(int[] nums) {//贪心算法
         if (nums.length < 2) return nums.length;
 
         int up = 1;//记录以第一个数字上升子序列的长度

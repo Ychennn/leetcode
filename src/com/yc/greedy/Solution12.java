@@ -2,7 +2,7 @@ package com.yc.greedy;
 
 public class Solution12 {//加油站⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-    public int canCompleteCircuit(int[] gas, int[] cost) {//效率低
+    public int canCompleteCircuit(int[] gas, int[] cost) {//暴力法,效率低
         for (int i = 0; i < gas.length; i++) {
             if (circuit(gas, cost, i, 0)) {
                 return i;
@@ -29,12 +29,13 @@ public class Solution12 {//加油站⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
     }
 
     public int canCompleteCircuit2(int[] gas, int[] cost) {//贪心算法
-        int total = 0;
         //所有加油站的油量-消耗累积和
-        int curr = 0;
+        int total = 0;
         //当前油量
+        int curr = 0;
+        //起始站,初始值为0,即从0号加油站开始
         int start = 0;
-        //初始化从0号加油站开始
+
         for (int i = 0; i < gas.length; i++) {
             curr += gas[i] - cost[i];
             total += gas[i] - cost[i];

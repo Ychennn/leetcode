@@ -1,7 +1,6 @@
 package com.yc.greedy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Solution18 {//划分字母区间

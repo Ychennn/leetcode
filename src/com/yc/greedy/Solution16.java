@@ -11,7 +11,7 @@ public class Solution16 {//根据身高重建队列⭐⭐⭐⭐⭐⭐⭐⭐⭐�
         //people[i][0]相等时按照people[i][1]升序排序
         Arrays.sort(people, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
 
-        //先解决高个子的,因为后面矮个子的添加对原先的高个子并无影响,
+        //先解决高个子的位置,后面矮个子的添加对原先的高个子并无影响
         //因为people[i][1]是记录排在这个人前面且身高大于或等于people[i][0]的人数
         LinkedList<int[]> linkedList = new LinkedList();
 

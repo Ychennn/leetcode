@@ -1,6 +1,6 @@
 package com.yc.dp;
 
-public class Solution11 {//视频拼接
+public class Solution11 {//视频拼接⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
     public static int videoStitching(int[][] clips, int T) {//贪心算法
         /*记录当前一轮，起始值，也就是上一轮的最大结束值*/

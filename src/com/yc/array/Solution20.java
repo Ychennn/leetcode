@@ -10,15 +10,18 @@ public class Solution20 {//下一个排列
                 int j = nums.length - 1;
                 for (; j > i; j--) {
                     if (nums[j] > nums[i]) {
+                        //交换对应的值
                         int tmp = nums[j];
                         nums[j] = nums[i];
                         nums[i] = tmp;
-                        Arrays.sort(nums, i + 1, nums.length);//从fromindex到to-1进行快排
+                        //从fromindex到to-1进行快排
+                        Arrays.sort(nums, i + 1, nums.length);
                         return;
                     }
                 }
             }
         }
+        //如果没有找到,即如654321,返回123456
         Arrays.sort(nums);
     }
 

@@ -10,7 +10,6 @@ public class Solution8 {//员工的重要性
         public List<Integer> subordinates;
     }
 
-
     public int getImportance(List<Employee> employees, int id) {
         Employee root = null;//id可能不存在
 
@@ -30,3 +29,4 @@ public class Solution8 {//员工的重要性
         return sum;
     }
 }
+

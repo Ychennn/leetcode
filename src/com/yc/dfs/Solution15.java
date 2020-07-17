@@ -15,7 +15,7 @@ public class Solution15 {//岛屿的最大面积⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
     }
 
     public int getArea(int[][] grid, int i, int j) {
-        //越界直接返回0
+        //下标越界直接返回0
         if (i < 0 || i >= grid.length||j < 0 || j >= grid[0].length) return 0;
 
         //递归的以当前为中心扩散向四周计算

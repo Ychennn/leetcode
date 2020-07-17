@@ -4,12 +4,10 @@ public class Solution15 {//岛屿的最大面积⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
     public int maxAreaOfIsland(int[][] grid) {//中心扩散法
         int maxArea = 0;
-        int area = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == 1) {
-                    area = getArea(grid, i, j);
-                    maxArea = Math.max(area, maxArea);
+                    maxArea = Math.max(getArea(grid, i, j),maxArea);
                 }
             }
         }
@@ -17,8 +15,8 @@ public class Solution15 {//岛屿的最大面积⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
     }
 
     public int getArea(int[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length) return 0;
-        if (j < 0 || j >= grid[0].length) return 0;
+        //越界直接返回0
+        if (i < 0 || i >= grid.length||j < 0 || j >= grid[0].length) return 0;
 
         //递归的以当前为中心扩散向四周计算
         if (grid[i][j] == 1) {

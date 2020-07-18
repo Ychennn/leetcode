@@ -35,7 +35,7 @@ public class Solution9 {//二叉树的而所有路径⭐⭐⭐⭐⭐⭐⭐⭐⭐
         stb.append(tmp);
         if (root.left != null) dfs2(root.left, list, stb);
         if (root.right != null) dfs2(root.right, list, stb);
-        //撤销
+        //回溯
         stb.delete(stb.length() - tmp.length(), stb.length());
     }
 

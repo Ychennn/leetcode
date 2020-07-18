@@ -21,7 +21,7 @@ public class Solution16 {//岛屿数量
         if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) return;
 
         if (grid[i][j] == '1') {
-            //防止重复判断,如{1,1}会死循环 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+            //防止重复判断,如{1,1}会死循环⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
             grid[i][j] = '0';
             //向右递归
             dfs(grid, i, j + 1);

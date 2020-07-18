@@ -33,8 +33,8 @@ public class Solution18 {//路径总和3⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
         result += recursionPathSum(node.left, prefixSumCount, targetSum, currSum);
         result += recursionPathSum(node.right, prefixSumCount, targetSum, currSum);
 
-        //回溯到上一层,如main方法中的root,遍历根节点 map添加{1,1},遍历左子树添加{-1,1}
-        //遍历右子树,未回溯时 1+-3 =-2,会使用到{-1,1}，最终结果为2,显然是错误的,因为只有1+-2=-1
+        //回溯到上一层,如main方法中的root节点,遍历根节点map添加{1,1},遍历左子树添加{-1,1}
+        //遍历右子树,未回溯时 1+-3 =-2,会使用到{1,1},最终result+1=2,显然是错误的,因为只有1+-2=-1
         //1+-3 != -1,未回溯造成了错误的结果
         prefixSumCount.put(currSum, prefixSumCount.getOrDefault(currSum, 0) - 1);
 

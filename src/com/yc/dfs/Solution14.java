@@ -3,30 +3,27 @@ package com.yc.dfs;
 public class Solution14 {//从前序与中序遍历序列构造二叉树⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return buildTreeHelper(preorder, 0, preorder.length, inorder, 0, inorder.length);
+        return buildTreeHelper(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
     }
-    
-    private TreeNode buildTreeHelper(int[] preorder, int p_start, int p_end,
-                                     int[] inorder, int i_start, int i_end) {
 
-        if (p_start == p_end) {
+    private TreeNode buildTreeHelper(int[] preorder, int preLeft, int preRight,
+                                     int[] inorder, int inLeft, int inRight) {
+
+        //递归终止条件
+        if (preLeft > preRight || inLeft > inRight) {
             return null;
         }
 
-        int root_val = preorder[p_start];
-        int i_root_index = 0;
-        for (int i = i_start; i < i_end; i++) {
-            if (inorder[i] == root_val) {
-                i_root_index = i;
-                break;
-            }
+        int rootVal = preorder[preLeft];
+        int rootIndex = inLeft;
+        while (inorder[rootIndex] != rootVal) {
+            rootIndex++;
         }
 
-        int left = i_root_index - i_start;
-        TreeNode root = new TreeNode(root_val);
+        TreeNode root = new TreeNode(rootVal);
 
-        root.left = buildTreeHelper(preorder, p_start + 1, p_start + left + 1, inorder, i_start, i_root_index);
-        root.right = buildTreeHelper(preorder, p_start + left + 1, p_end, inorder, i_root_index + 1, i_end);
+        root.left = buildTreeHelper(preorder, preLeft + 1, preLeft + rootIndex - inLeft, inorder, inLeft, rootIndex);
+        root.right = buildTreeHelper(preorder, preLeft + rootIndex - inLeft + 1, preRight, inorder, rootIndex + 1, inRight);
 
         return root;
     }

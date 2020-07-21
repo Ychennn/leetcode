@@ -49,11 +49,9 @@ public class Solution23 {//填充每个节点的下一个右侧节点指针⭐�
             node.next = parent.next == null ? null : parent.next.left;
         }
 
-        parent = node;
+        dfs(node.left, node);//左递归
 
-        dfs(node.left, parent);//左递归
-
-        dfs(node.right, parent);//右递归
+        dfs(node.right, node);//右递归
     }
 
 

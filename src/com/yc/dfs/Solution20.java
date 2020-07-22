@@ -1,36 +1,41 @@
 package com.yc.dfs;
 
-public class Solution20 {//打家劫舍3⭐⭐⭐⭐⭐⭐⭐⭐
+public class Solution20 {//合法二叉搜索树⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-    public int rob(TreeNode root) {//动态规划 + 后续遍历
-        int[] result = dfs(root);
-        return Math.max(result[0], result[1]);
+    //不能只判断层级关系,如根节点为5,左子节点为3,左子节点的右子节点为6,是不符合条件的
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) return true;
+
+        //找寻左子树中的最右(数值最大)子节点
+        //maxLeft.right != null不能省略⭐⭐⭐,除了叶子节点必须找到最值
+        TreeNode maxLeft = root.left;
+        while (maxLeft != null && maxLeft.right != null) {
+            maxLeft = maxLeft.right;
+        }
+
+        //找寻右子树中的最左(数值最小)子节点
+        TreeNode minRight = root.right;
+        while (minRight != null && minRight.left != null) {
+            minRight = minRight.left;
+        }
+
+        //叶子节点-->maxLeft&&minRight==null
+        //判断是否符合条件
+        boolean flag = (maxLeft == null || maxLeft.val < root.val) && (minRight == null || root.val < minRight.val);
+
+        //从根节点往下判断
+        return flag && isValidBST(root.left) && isValidBST(root.right);
     }
 
-    private int[] dfs(TreeNode node) {
-        if (node == null) return new int[]{0, 0};
-
-        int[] left = dfs(node.left);
-        int[] right = dfs(node.right);
-
-        int[] dp = new int[2];
-
-        //dp[0]:以当前node为根结点的子树能够偷取的最大价值,规定node结点不偷
-        //dp[1]:以当前node为根结点的子树能够偷取的最大价值,规定node结点偷
-        dp[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
-        dp[1] = node.val + left[0] + right[0];
-
-        return dp;
-    }
 
     public static void main(String[] args) {
-        Solution20 solution20 =new Solution20();
+        Solution20 solution20 = new Solution20();
         TreeNode root = new TreeNode(2);
         TreeNode left = new TreeNode(1);
         TreeNode right = new TreeNode(3);
         root.left = left;
         root.right = right;
-        int rob = solution20.rob(root);
-        System.out.println(rob);
+        boolean isValidBST = solution20.isValidBST(root);
+        System.out.println(isValidBST);
     }
 }

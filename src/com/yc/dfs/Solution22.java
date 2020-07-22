@@ -1,31 +1,71 @@
 package com.yc.dfs;
 
-public class Solution22 {//求根到叶子节点数字之和
+public class Solution22 {//填充每个节点的下一个右侧节点指针⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-    public int sumNumbers(TreeNode root) {
-        if (root == null) return 0;
-        return dfs(root, 0);
-    }
+    static class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
 
-    //如果用stb += node.val 最终再求和效率很低
-    private int dfs(TreeNode node, int i) {//效率高,但节点的val只能为1位,否则需要改代码
-        if (node == null) return 0;
-        int tmp = i * 10 + node.val;
-        if (node.left == null && node.right == null) {
-            return tmp;
+        public Node() {
         }
 
-        return dfs(node.left, tmp) + dfs(node.right, tmp);
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _left, Node _right, Node _next) {
+            val = _val;
+            left = _left;
+            right = _right;
+            next = _next;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "val=" + val +
+                    ", left=" + left +
+                    ", right=" + right +
+                    ", next=" + next +
+                    '}';
+        }
     }
+
+    public Node connect(Node root) {
+        Node parent = new Node();
+        parent.left = root;
+        dfs(root, parent);
+        return root;
+    }
+
+    private void dfs(Node node, Node parent) {
+        if (node == null) return;//终止条件
+
+        if (node == parent.left) {
+            node.next = parent.right;
+        } else {
+            node.next = parent.next == null ? null : parent.next.left;
+        }
+
+        dfs(node.left, node);//左递归
+
+        dfs(node.right, node);//右递归
+    }
+
 
     public static void main(String[] args) {
         Solution22 solution22 = new Solution22();
-        TreeNode root = new TreeNode(1);
-        TreeNode left = new TreeNode(2);
-        TreeNode right = new TreeNode(3);
+        Node root = new Node();
+        root.val = 1;
+        Node left = new Node();
+        left.val = 2;
+        Node right = new Node();
+        right.val = 3;
         root.left = left;
         root.right = right;
-        int i = solution22.sumNumbers(root);
-        System.out.println(i);
+        Node connect = solution22.connect(root);
+        System.out.println(connect);
     }
 }

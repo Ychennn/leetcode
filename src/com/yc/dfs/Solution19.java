@@ -1,42 +1,36 @@
 package com.yc.dfs;
 
-public class Solution19 {//从中序与后序遍历序列构造二叉树⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+public class Solution19 {//打家劫舍3⭐⭐⭐⭐⭐⭐⭐⭐
 
-    public TreeNode buildTree(int[] inorder, int[] postorder) {
-        return buildTreeHelper(inorder, 0, inorder.length - 1, postorder,
-                0, inorder.length - 1);
+    public int rob(TreeNode root) {//动态规划 + 后续遍历
+        int[] result = dfs(root);
+        return Math.max(result[0], result[1]);
     }
 
+    private int[] dfs(TreeNode node) {
+        if (node == null) return new int[]{0, 0};
 
-    private TreeNode buildTreeHelper(int[] inorder, int inLeft, int inRight,
-                                     int[] postorder, int postLeft, int postRight) {
-        //递归终止条件
-        if (inLeft > inRight || postLeft > postRight) {
-            return null;
-        }
+        int[] left = dfs(node.left);
+        int[] right = dfs(node.right);
 
-        int rootVal = postorder[postRight];
-        int rootIndex = inLeft;
+        int[] dp = new int[2];
 
-        //注意越界
-        while (inorder[rootIndex] != rootVal) {
-            rootIndex++;
-        }
-        TreeNode root = new TreeNode(rootVal);
+        //dp[0]:以当前node为根结点的子树能够偷取的最大价值,规定node结点不偷
+        //dp[1]:以当前node为根结点的子树能够偷取的最大价值,规定node结点偷
+        dp[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        dp[1] = node.val + left[0] + right[0];
 
-        root.left = buildTreeHelper(inorder, inLeft, rootIndex - 1,
-                postorder, postLeft, postRight - inRight + rootIndex - 1);
-
-        root.right = buildTreeHelper(inorder, rootIndex + 1, inRight,
-                postorder, postRight - inRight + rootIndex, postRight - 1);
-        return root;
+        return dp;
     }
 
     public static void main(String[] args) {
-        Solution19 solution19 = new Solution19();
-        int[] inorder = new int[]{1, 2, 3};
-        int[] postorder = new int[]{1, 3, 2};
-        TreeNode root = solution19.buildTree(inorder, postorder);
-        System.out.println(root);
+        Solution19 solution19 =new Solution19();
+        TreeNode root = new TreeNode(2);
+        TreeNode left = new TreeNode(1);
+        TreeNode right = new TreeNode(3);
+        root.left = left;
+        root.right = right;
+        int rob = solution19.rob(root);
+        System.out.println(rob);
     }
 }

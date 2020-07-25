@@ -1,4 +1,4 @@
-package com.yc.dfs;
+package com.yc.bfs;
 
 public class TreeNode {
     int val;

@@ -1,5 +1,6 @@
 package com.yc.dfs;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Solution8 {//员工的重要性
@@ -10,22 +11,22 @@ public class Solution8 {//员工的重要性
         public List<Integer> subordinates;
     }
 
-    public int getImportance(List<Employee> employees, int id) {
-        Employee root = null;//id可能不存在
-
+    public int getImportance(List<Employee> employees, int id) {//dfs
+        //多次遍历效率低,用map保存节点
+        HashMap<Integer, Employee> map = new HashMap<>();
         for (Employee employee : employees) {
-            if (employee.id == id) {
-                root = employee;
-                break;
-            }
+            map.put(employee.id, employee);
         }
+        int sum = dfs(employees, map, id);
+        return sum;
+    }
 
+    public int dfs(List<Employee> employees, HashMap<Integer, Employee> map, int id) {
+        Employee root = map.get(id);
         int sum = root.importance;
-
         for (Integer subordinate : root.subordinates) {
-            sum += getImportance(employees, subordinate);
+            sum += dfs(employees, map, subordinate);
         }
-
         return sum;
     }
 }

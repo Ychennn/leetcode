@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class Solution7 {
-    private static class Employee {
+    private static class Employee {//员工的重要性
         public int id;
         public int importance;
         public List<Integer> subordinates;

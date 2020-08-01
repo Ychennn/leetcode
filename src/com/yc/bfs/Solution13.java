@@ -12,9 +12,9 @@ public class Solution13 {//完全平方数⭐⭐⭐⭐⭐⭐⭐⭐⭐
         for (int i = 1; i < n + 1; i++) {
             dp[i] = i;
 
-            for (int j = 1; i - j * j >= 0; j++) {
+            for (int j = 1; j * j <= i; j++) {
                 //动态转换方程
-                dp[i] = Math.max(dp[i], dp[i - j * j] + 1);
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }
         return dp[n];

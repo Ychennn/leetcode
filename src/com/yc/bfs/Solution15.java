@@ -3,9 +3,7 @@ package com.yc.bfs;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution15 {
-    int[] dx = {0, 0, 1, -1};
-    int[] dy = {1, -1, 0, 0};
+class Solution15 {//岛屿数量
 
     public int numIslands(char[][] grid) {
         int count = 0;
@@ -21,6 +19,9 @@ class Solution15 {
 
         return count;
     }
+
+    int[] dx = {0, 0, 1, -1};
+    int[] dy = {1, -1, 0, 0};
 
     private void bfs(char[][] grid, int i, int j) {
         Queue<int[]> queue = new LinkedList<>();

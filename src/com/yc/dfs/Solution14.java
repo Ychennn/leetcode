@@ -22,7 +22,7 @@ public class Solution14 {//从前序与中序遍历序列构造二叉树⭐⭐�
 
         TreeNode root = new TreeNode(rootVal);
 
-        root.left = buildTreeHelper(preorder, preLeft + 1, preLeft + rootIndex - inLeft, inorder, inLeft, rootIndex);
+        root.left = buildTreeHelper(preorder, preLeft + 1, preLeft + rootIndex - inLeft, inorder, inLeft, rootIndex - 1);
         root.right = buildTreeHelper(preorder, preLeft + rootIndex - inLeft + 1, preRight, inorder, rootIndex + 1, inRight);
 
         return root;

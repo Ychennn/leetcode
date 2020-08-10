@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Solution4 {//供暖器
 
     public int findRadius(int[] houses, int[] heaters) {
-        //在每个房子附近找出最小的暖器距离,在所有距离中取最大的距离
+        //在每个房子附近找出最小的暖器距离,在所有距离中取最大值
         Arrays.sort(houses);
         Arrays.sort(heaters);
         int res = 0;

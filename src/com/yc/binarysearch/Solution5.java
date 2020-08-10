@@ -13,8 +13,8 @@ public class Solution5 {//寻找比目标字母大的最小字母⭐⭐⭐⭐⭐
             else left = mid + 1;
         }
 
-        //取模是因为left由于mid+1,可能会大于letters.length
-        //也刚好满足了如果最小值都比target大需返回第一个元素的情况
+        //取模是因为left=mid+1,可能会出现left>letters.length-1
+        //满足了如果最小值都比target大需返回第一个元素的情况
         return letters[left % letters.length];
     }
 

@@ -1,6 +1,7 @@
 package com.yc.binarysearch;
 
-public class Solution8 {
+public class Solution8 {//第一个错误的版本
+
     public boolean isBadVersion(int version) {//该方法leetcode提供
         return true;
     }

@@ -3,8 +3,8 @@ package com.yc.binarysearch;
 public class Solution19 {//寻找重复数⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
     public int findDuplicate(int[] nums) {//利用了抽屉原理
-        int left = 0;
-        int right = nums.length;
+        int left = 1;//因为值只能为1~nums.length-1
+        int right = nums.length - 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
 

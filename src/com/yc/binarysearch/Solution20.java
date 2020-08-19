@@ -9,7 +9,7 @@ public class Solution20 {//搜索旋转排序数组⭐⭐⭐⭐⭐⭐⭐⭐⭐�
 
         int left = 0;
         int right = nums.length - 1;
-        //这里如果为 <，最后一步需加一步判断 if (nums[left] == target) return left;
+        //这里如果为 < ,最后一步需加一步判断 if (nums[left] == target) return left;
         //因为未到达while循环内的 if(nums[mid] == target) return mid;
         while (left <= right) {
             int mid = left + (right - left) / 2;

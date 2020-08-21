@@ -17,7 +17,7 @@ public class Solution25 {//转变数组后最接近目标值的数组和⭐⭐�
         while (left < right) {
             mid = left + (right - left) / 2;
 
-            //这里也可以改为 >target ,但需要更改while条件和right = mid -1;
+            //这里也可以改为 >target ,但需要更改while条件和right = mid -1;否则会出现死循环
             if (getSum(arr, mid) < target) {
                 left = mid + 1;
             } else {

@@ -11,9 +11,9 @@ class Solution {//字母大小写全排列
         return result;
     }
 
-    //dfs递归，遍历每一个位置的字符
-    //保持当前位置的字符不变，递归下一个位置
-    //如果当前位置为字母，则再加一个大小写转换之后的递归分支
+    //dfs递归,遍历每一个位置的字符
+    //保持当前位置的字符不变,递归下一个位置
+    //如果当前位置为字母,则再加一个大小写转换之后的递归分支
     private void recursion(char[] chars, int index) {
         if (index == chars.length) {
             result.add(new String(chars));

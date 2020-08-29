@@ -1,6 +1,7 @@
 package com.yc.dpointer;
 
-public class Solution9 {
+public class Solution9 {//长按键入⭐⭐⭐⭐⭐⭐⭐⭐
+
     public boolean isLongPressedName(String name, String typed) {
         int nlen = name.length();
         int tlen = typed.length();

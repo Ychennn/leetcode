@@ -1,37 +1,40 @@
 package com.yc.array;
 
-import java.util.HashMap;
+public class Solution27 {//最大子序和
 
-public class Solution27 {//和为K的子数组
-
-    public static int subarraySum(int[] nums, int k) {
-        int count = 0, sum;
+    public static int maxSubArray(int[] nums) {//暴力法
+        int sum;
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
             sum = 0;
             for (int j = i; j < nums.length; j++) {
                 sum += nums[j];
-                if (sum == k) count++;
+                if (sum > max) {
+                    max = sum;
+                }
             }
         }
-        return count;
+        return max;
     }
 
-    public static int subarraySumPro(int[] nums, int k) {//⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
-        int count = 0, sum = 0;
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);//防止数组中第一个数就和k相等不被记录
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-            if (map.containsKey(sum - k)) {
-                count += map.get(sum - k);
+    public static int maxSubArrayPro(int[] nums) {//优化
+        int max = nums[0];
+        int sum = 0;
+        for (int num : nums) {
+            if (sum > 0) {
+                sum += num;
+            } else {
+                sum = num;
             }
-            map.put(sum, map.getOrDefault(sum, 0) + 1);
+            max = Math.max(sum, max);
         }
-        return count;
+        return max;
     }
 
     public static void main(String[] args) {
-        int i = subarraySumPro(new int[]{1, 2, 3}, 3);
+//        int i = maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4});
+//        int i = maxSubArrayPro(new int[]{-1});
+        int i = maxSubArrayPro(new int[]{-2, 3, -1, 1, 3});
         System.out.println(i);
     }
 }

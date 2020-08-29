@@ -1,47 +1,46 @@
 package com.yc.array;
 
+public class Solution24 {//搜索旋转排序数组
 
-import java.util.Arrays;
-
-public class Solution24 {//在排序数组中查找元素的第一个和最后一个位置⭐⭐⭐⭐⭐⭐⭐
-
-    public static int[] searchRange(int[] nums, int target) {
-        int a = search(nums, target);
-        int b = search(nums, target + 1);
-        if (a == nums.length || target != nums[a]) {
-            return new int[]{-1, -1};
+    public static int search(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
         }
-        return new int[]{a, b - 1};
-    }
-
-    private static int search(int[] nums, int t) {//寻找target在数组中最左边的位置,left<right
-        int left = 0;
-        int right = nums.length;
-        while (left < right) {
-            int m = (left + right) >>> 1;
-            if (nums[m] < t)
-                left = m + 1;
-            else
-                right = m;
-        }
-        return left;
-    }
-
-    private static int search2(int[] nums, int t) {//left<=right
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
-            int m = (left + right) >>> 1;
-            if (nums[m] < t)
-                left = m + 1;
-            else
-                right = m - 1;
+            int mid = left + (right - left) / 2;
+            //找到目标值了直接返回
+            if (nums[mid] == target) {
+                return mid;
+            }
+            //如果左侧是有序的
+            if (nums[left] <= nums[mid]) {
+                //同时target在[ nums[begin],nums[mid] ]中，那么就在这段有序区间查找
+                if (nums[left] <= target && target <= nums[mid]) {
+                    right = mid - 1;
+                    //否则去反方向查找
+                } else {
+                    left = mid + 1;
+                }
+            }
+            //如果右侧是有序的
+            else {
+                //同时target在 ( nums[mid],nums[end] ]中，那么就在这段有序区间查找
+                if (nums[mid] < target && target <= nums[right]) {
+                    left = mid + 1;
+                    //否则去反方向查找
+                } else {
+                    right = mid - 1;
+                }
+            }
         }
-        return left;
+
+        return -1;
     }
 
     public static void main(String[] args) {
-        int[] result = searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8);
-        System.out.println(Arrays.toString(result));
+        int search = search(new int[]{6, 7, 0, 1, 2, 3, 4, 5}, 0);
+        System.out.println(search);
     }
 }

@@ -1,48 +1,35 @@
 package com.yc.binarysearch;
 
-public class Solution30 {//最长重复子数组⭐⭐⭐⭐⭐
+public class Solution30 {//搜索二维矩阵
 
-    //动态规划参照dp-39
-    public int findLength(int[] A, int[] B) {//滑动窗口
-        int m = A.length;
-        int n = B.length;
-        int res = 0;
-        //B固定,A移动
-        for (int i = 0; i < m; i++) {
-            int len = Math.min(n, m - i);
-            int maxlen = maxLength(A, i, B, 0, len);
-            res = Math.max(res, maxlen);
-        }
-        //A固定,B移动
-        for (int i = 0; i < n; i++) {
-            int len = Math.min(m, n - i);
-            int maxlen = maxLength(A, 0, B, i, len);
-            res = Math.max(res, maxlen);
-        }
-        return res;
-    }
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        if (m == 0) return false;
+        int n = matrix[0].length;
 
-    //统计给定的数组最长字串长度
-    private int maxLength(int[] A, int aStart, int[] B, int bStart, int len) {
-        int max = 0;
-        int count = 0;
-
-        for (int i = 0; i < len; i++) {
-            if (A[aStart + i] == B[bStart + i]) {
-                count++;
-            } else {
-                count = 0;
-            }
-            max = Math.max(max, count);
+        int left = 0;
+        int right = m * n;
+        int mid;
+        int midVal;
+        while (left < right) {
+            mid = left + (right - left) / 2;
+            midVal = matrix[mid / n][mid % n];
+            if (midVal == target) return true;
+            else if (midVal < target) left = mid + 1;
+            else right = mid;
         }
-        return max;
+        return false;
     }
 
     public static void main(String[] args) {
         Solution30 solution30 = new Solution30();
-        int[] A = new int[]{1, 2/*, 3, 2, 1*/};
-        int[] B = new int[]{/*3, 2,*/ 1, 2/*, 4, 7*/};
-        int i = solution30.findLength(A, B);
-        System.out.println(i);
+        int[][] matrix = new int[][]{
+                {1, 3, 5, 7},
+                {10, 11, 16, 20},
+                {23, 30, 34, 50}
+        };
+        int target = 3;
+        boolean b = solution30.searchMatrix(matrix, target);
+        System.out.println(b);
     }
 }

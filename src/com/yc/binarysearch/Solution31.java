@@ -1,35 +1,42 @@
 package com.yc.binarysearch;
 
-public class Solution31 {//搜索二维矩阵
+import java.util.Arrays;
 
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int m = matrix.length;
-        if (m == 0) return false;
-        int n = matrix[0].length;
+public class Solution31 {//长度最小的子数组⭐⭐⭐⭐⭐⭐⭐⭐
 
-        int left = 0;
-        int right = m * n;
-        int mid;
-        int midVal;
-        while (left < right) {
-            mid = left + (right - left) / 2;
-            midVal = matrix[mid / n][mid % n];
-            if (midVal == target) return true;
-            else if (midVal < target) left = mid + 1;
-            else right = mid;
+    public int minSubArrayLen(int s, int[] nums) {//前缀和 + 二分查找
+        int len = nums.length;
+        if (len == 0) return 0;
+        int res = Integer.MAX_VALUE;
+
+        //前缀和数组
+        //nums[i]代表前i个元素的前缀和
+        int[] prefixsums = new int[len + 1];
+        for (int i = 1; i <= len; i++) {
+            prefixsums[i] = prefixsums[i - 1] + nums[i - 1];
         }
-        return false;
+
+        //因为为为正数数组,所以不会出现index < i的情况
+        for (int i = 1; i <= len; i++) {
+            int target = prefixsums[i - 1] + s;
+
+            //源码中,如果未找到该数字,则会返回在数组对应的位置+1的负数即 -(low + 1);
+            int index = Arrays.binarySearch(prefixsums, target);
+
+            if (index < 0) index = -index - 1;
+
+            if (index <= len) res = Math.min(res, index - i + 1);
+
+        }
+
+        return res == Integer.MAX_VALUE ? 0 : res;
     }
 
     public static void main(String[] args) {
         Solution31 solution31 = new Solution31();
-        int[][] matrix = new int[][]{
-                {1, 3, 5, 7},
-                {10, 11, 16, 20},
-                {23, 30, 34, 50}
-        };
-        int target = 3;
-        boolean b = solution31.searchMatrix(matrix, target);
-        System.out.println(b);
+        int[] arr = new int[]{2, 3, 1, 2, 4, 3};
+        int s = 7;
+        int len = solution31.minSubArrayLen(s, arr);
+        System.out.println(len);
     }
 }

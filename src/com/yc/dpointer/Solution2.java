@@ -2,7 +2,8 @@ package com.yc.dpointer;
 
 import java.util.Arrays;
 
-public class Solution2 {
+public class Solution2 {//反转字符串
+
     public void reverseString(char[] s) {
         int i = 0, j = s.length - 1;
         while (i < j) {

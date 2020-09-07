@@ -12,8 +12,7 @@ class Solution {//删除排序数组中的重复项⭐⭐⭐⭐⭐⭐⭐⭐⭐�
 
         while (j < nums.length) {
             if (nums[i] != nums[j]) {
-                i++;
-                nums[i] = nums[j];
+                nums[++i] = nums[j];
             }
             j++;
         }

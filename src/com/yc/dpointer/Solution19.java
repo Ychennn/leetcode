@@ -32,6 +32,7 @@ public class Solution19 {//统计「优美子数组」⭐⭐⭐⭐⭐⭐⭐⭐�
                     left++;
                 }
 
+                //+1 是因为可以选择前面的任何元素,也可以不选择
                 res += (leftEvenCnt + 1) * (rightEvenCount + 1);
 
                 //此时left指向的是第1个奇数,因为该区间已经统计完了,因此left右移一位,oddCnt--
@@ -65,7 +66,7 @@ public class Solution19 {//统计「优美子数组」⭐⭐⭐⭐⭐⭐⭐⭐�
 
     public static void main(String[] args) {
         Solution19 solution19 = new Solution19();
-        int[] nums = new int[]{1, 1, 2, 1, 1};
+        int[] nums = new int[]{1, 2, 2, 1, 1, 1};
         int k = 3;
         int i = solution19.numberOfSubarrays2(nums, k);
         System.out.println(i);

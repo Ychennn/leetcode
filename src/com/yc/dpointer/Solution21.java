@@ -15,10 +15,10 @@ public class Solution21 {//无重复字符的最长子串⭐⭐⭐⭐⭐
         for (int end = 0, start = 0; end < s.length(); end++) {
             char c = s.charAt(end);
             if (map.containsKey(c)) {
-                start = Math.max(start, map.get(c) + 1);
+                start = Math.max(start,map.get(c) + 1);
             }
             map.put(c, end);
-            res = Math.max(res, end - start + 1);
+            res = Math.max(res,end - start + 1);
         }
         return res;
     }
@@ -39,7 +39,7 @@ public class Solution21 {//无重复字符的最长子串⭐⭐⭐⭐⭐
     }
 
     public static void main(String[] args) {
-        Solution21 solution21 = new Solution21();
+        Solution21  solution21 = new Solution21();
         String s = "abcabcbb";
         int i = solution21.lengthOfLongestSubstring(s);
         System.out.println(i);

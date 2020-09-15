@@ -1,7 +1,9 @@
 package com.yc.dpointer;
 
-public class Solution25 {//环形链表2⭐⭐⭐⭐⭐⭐⭐
+public class Solution25 {//环形链表2⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
     public ListNode detectCycle(ListNode head) {
+        //快慢指针
         ListNode slow = head, fast = head;
 
         while (fast != null && fast.next != null) {

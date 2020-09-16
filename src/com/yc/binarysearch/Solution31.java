@@ -16,17 +16,15 @@ public class Solution31 {//长度最小的子数组⭐⭐⭐⭐⭐⭐⭐⭐
             prefixsums[i] = prefixsums[i - 1] + nums[i - 1];
         }
 
-        //因为为为正数数组,所以不会出现index < i的情况
-        for (int i = 1; i <= len; i++) {
-            int target = prefixsums[i - 1] + s;
+        for (int i = 0; i <= len; i++) {
+            int target = prefixsums[i] + s;
 
             //源码中,如果未找到该数字,则会返回在数组对应的位置+1的负数即 -(low + 1);
             int index = Arrays.binarySearch(prefixsums, target);
 
             if (index < 0) index = -index - 1;
 
-            if (index <= len) res = Math.min(res, index - i + 1);
-
+            if (index <= len) res = Math.min(res, index - i);
         }
 
         return res == Integer.MAX_VALUE ? 0 : res;

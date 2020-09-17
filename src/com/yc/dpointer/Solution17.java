@@ -29,7 +29,6 @@ public class Solution17 {//分隔链表⭐⭐⭐⭐⭐⭐⭐⭐
 
         //两段拼接
         minP.next = maxLink.next;
-
         return minLink.next;
     }
 }

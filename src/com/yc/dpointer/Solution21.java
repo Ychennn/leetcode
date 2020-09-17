@@ -15,7 +15,8 @@ public class Solution21 {//无重复字符的最长子串⭐⭐⭐⭐⭐
         for (int end = 0, start = 0; end < s.length(); end++) {
             char c = s.charAt(end);
             if (map.containsKey(c)) {
-                start = Math.max(start,map.get(c) + 1);
+                //"abba"
+                start = Math.max(start,map.get(c) + 1);//⭐⭐⭐⭐
             }
             map.put(c, end);
             res = Math.max(res,end - start + 1);

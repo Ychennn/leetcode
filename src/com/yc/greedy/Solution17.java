@@ -22,7 +22,7 @@ public class Solution17 {//任务调度器⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
                 if (map[25] == 0) {
                     break;
                 }
-                if (i < 26 && map[25 - i] > 0) {//i < 26是为了防止n>26的情况
+                if (i < 26 && map[25 - i] > 0) {//i < 26是为了防止(间隔时间 > 26)的情况
                     map[25 - i]--;
                 }
                 time++;
@@ -34,7 +34,7 @@ public class Solution17 {//任务调度器⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
         return time;
     }
 
-    public int leastInterval2(char[] tasks, int n) {//桶思想
+    public int leastInterval2(char[] tasks, int n) {//桶思想,具体思路看官方题解
         int[] map = new int[26];
         for (char task : tasks) {
             map[task - 'A'] += 1;

@@ -3,6 +3,7 @@ package com.yc.bit;
 public class Solution5 {//插入⭐⭐⭐⭐⭐⭐⭐
 
     public int insertBits(int N, int M, int i, int j) {
+        //该循环将N的二进制位从i至j置0
         for (int k = i; k <= j; k++) {
             N &= ~(1 << k);//解决了溢出的问题
 

@@ -26,7 +26,6 @@ public class Solution9 {//检查替换后的词是否有效⭐⭐⭐⭐⭐⭐
             S = S.replace("abc", "");
         }
         return S.equals("");
-
     }
 
     public static void main(String[] args) {

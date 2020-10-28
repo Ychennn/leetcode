@@ -35,7 +35,6 @@ public class Solution10 {//括号的分数⭐⭐⭐⭐⭐⭐⭐⭐⭐
         return sum;
     }
 
-
     public static void main(String[] args) {
         Solution10 solution10 = new Solution10();
         String S = "(()(()))";

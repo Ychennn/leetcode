@@ -21,8 +21,7 @@ public class Solution23 {//字符串解码⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
                 count = count * 10 + Integer.parseInt(String.valueOf(s.charAt(index)));
             } else if (s.charAt(index) == '[') {
                 String[] tmp = dfs(s, index + 1);
-                index = Integer.parseInt(tmp[1]);
-                System.out.println(index);
+                index = Integer.parseInt(tmp[1]);//更新当前待处理的位的索引
 
                 while (count > 0) {
                     res.append(tmp[0]);
@@ -41,7 +40,6 @@ public class Solution23 {//字符串解码⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐�
     public static void main(String[] args) {
         Solution23 solution23 = new Solution23();
         String s = "3[a]2[bc]";
-//        String s = "3[2[bc]]";
         String str = solution23.decodeString(s);
         System.out.println(str);
     }

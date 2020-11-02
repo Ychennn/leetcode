@@ -3,7 +3,7 @@ package com.yc.stack;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class Solution17 {//字符串解码⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+public class Solution17 {//字符串解码⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ (见dfs Solution23)
 
     public String decodeString(String s) {
         //该栈用来存放括号[]前面的数字,即括号里面内容重复的次数

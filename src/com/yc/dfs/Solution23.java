@@ -1,6 +1,6 @@
 package com.yc.dfs;
 
-public class Solution23 {//字符串解码⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+public class Solution23 {//字符串解码⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ (见stack Solution17)
 
     public String decodeString(String s) {
         return dfs(s, 0)[0];

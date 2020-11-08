@@ -1,27 +1,38 @@
 package com.yc.linkedlist;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Solution4 {//移除链表元素⭐⭐⭐⭐⭐⭐
 
-public class Solution4 {//链表的中间结点⭐⭐⭐⭐⭐
+    public ListNode removeElements2(ListNode head, int val) {//哑节点法
+        ListNode tmp = new ListNode(0);
+        tmp.next = head;
 
-    public ListNode middleNode(ListNode head) {//list,效率低
-        List<ListNode> list = new ArrayList<>();
+        ListNode pre = tmp;//和Solution4不一样,该题移除多个元素
         while (head != null) {
-            list.add(head);
+            if (head.val == val) {
+                pre.next = head.next;
+            } else {
+                pre = head;
+            }
             head = head.next;
         }
-        return list.get(list.size() / 2);
+        return tmp.next;
     }
 
-    public ListNode middleNode2(ListNode head) {//快慢指针
-        ListNode slow = head;
-        ListNode fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+    public ListNode removeElements(ListNode head, int val) {//递归法⭐⭐⭐⭐⭐
+        if (head == null) return null;
+        head.next = removeElements(head.next, val);
+        if (head.val == val) {
+            return head.next;
+        } else {
+            return head;
         }
-        return slow;
+    }
+
+    public static void main(String[] args) {
+        Solution4 solution4 = new Solution4();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(1);
+        ListNode root = solution4.removeElements(head, 1);
+        System.out.println(root);
     }
 }

@@ -10,6 +10,7 @@ public class Solution3 {//删除链表的节点⭐⭐⭐⭐⭐⭐
         while (head != null) {
             if (head.val == val) {
                 pre.next = head.next;
+                break;
             }
             pre = head;
             head = head.next;

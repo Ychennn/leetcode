@@ -7,7 +7,7 @@ public class Solution6 {//两个链表的第一个公共节点⭐⭐⭐⭐
         ListNode p2 = headB;
         while (p1 != p2) {
             //这里不能使用p1.next == null?,因为在没有交点的时候,会出现死循环,p1,p2永不相等
-            //当有公共点时,则效果一样.而p1 == null?则会在p1 == p2 ==null时退出循环
+            //当有公共点时,效果一样.而p1 == null?则会在没有公共点时,最终在p1,p2都为null时退出循环
             p1 = (p1.next == null) ? headB : p1.next;
             p2 = (p2.next == null) ? headA : p2.next;
         }

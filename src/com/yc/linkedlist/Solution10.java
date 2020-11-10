@@ -31,9 +31,9 @@ public class Solution10 {//从尾到头打印链表⭐⭐⭐⭐⭐⭐
         }
 
         int[] res = new int[stack.size()];
-        int index = stack.size() - 1;
+        int idx = stack.size() - 1;
         while (!stack.isEmpty()) {
-            res[index--] = stack.pop();
+            res[idx--] = stack.pop();
         }
         return res;
     }

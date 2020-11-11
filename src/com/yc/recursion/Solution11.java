@@ -1,8 +1,7 @@
 package com.yc.recursion;
 
 
-public class Solution11 {
-
+public class Solution11 {//扁平化多级双向链表⭐⭐⭐⭐⭐⭐
     private Node prev = null;
 
     public Node flatten(Node head) {
@@ -10,11 +9,11 @@ public class Solution11 {
         return head;
     }
 
-    private void dfs(Node head) {//递归
+    private void dfs(Node head) {//递归,难理解,和迭代效率一致
         if (head == null) return;
 
         //保存当前节点的下一个节点
-        //在dfs(head.child)时,改变了head.next的指向,会造成栈溢出
+        //在dfs(head.child)时,改变了head.next的指向,会造死循环
         Node nextNode = head.next;
 
         if (prev != null) {

@@ -8,7 +8,7 @@ public class Solution11 {//扁平化多级双向链表⭐⭐⭐⭐⭐⭐
         return head;
     }
 
-    private void dfs(Node head) {//递归,难理解,还迭代效率衹
+    private void dfs(Node head) {//递归,难理解,和迭代效率差不多
         if (head == null) return;
 
         //保存当前节点的下一个节点

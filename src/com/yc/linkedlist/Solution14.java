@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 public class Solution14 {//两数相加2⭐⭐⭐⭐⭐⭐
 
+    //两数相加见Solution19⭐⭐⭐
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         Deque<Integer> stack1 = new LinkedList<>();
         Deque<Integer> stack2 = new LinkedList<>();

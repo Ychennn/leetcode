@@ -10,7 +10,7 @@ public class Solution24 {//二叉树中的链表⭐⭐⭐⭐⭐⭐⭐⭐
         return helper(head, root) || helper(head, root.left) || helper(head, root.right);
     }
 
-    private boolean helper(ListNode head, TreeNode root) {//给定的节点的值相等,进行后续判断
+    private boolean helper(ListNode head, TreeNode root) {//从isSubPath给定值相等的节点,进行后续判断
         //链表走完了,返回true
         if (head == null) return true;
         //链表没走完,树走完了,返回false

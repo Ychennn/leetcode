@@ -25,7 +25,7 @@ public class Solution2 {//回文链表⭐⭐⭐⭐⭐⭐
     /*--------------------------------------------*/
     ListNode temp;
 
-    public boolean isPalindrome2(ListNode head) {//递归⭐⭐⭐⭐⭐⭐,画图理解
+    public boolean isPalindrome2(ListNode head) {//递归⭐⭐⭐⭐⭐⭐画图理解
         temp = head;
         return check(head);
     }

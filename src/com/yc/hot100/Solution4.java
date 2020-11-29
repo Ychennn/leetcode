@@ -6,8 +6,8 @@ public class Solution4 {//找到所有数组中消失的数字⭐⭐⭐⭐⭐⭐
 
     //题目要求不使用额外空间
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        //0 < nus[i] <= nums.length
-        List<Integer> res = new ArrayList<Integer>();
+        //1 <= nus[i] <= nums.length
+        List<Integer> res = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
             int idx = Math.abs(nums[i]) - 1;//⭐⭐⭐⭐⭐⭐

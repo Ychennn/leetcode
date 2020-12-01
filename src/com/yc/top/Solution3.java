@@ -9,7 +9,7 @@ public class Solution3 {//在排序数组中查找元素的第一个和最后一
                 || target > nums[nums.length - 1]) ;
 
         int left = leftIdx(nums, target);//找到该值最左的索引
-        int right = leftIdx(nums, target + 1);//找到比它值大1的最左索引
+        int right = leftIdx(nums, target + 1);//找到比目标值大1的最左索引
         if (left == nums.length || target != nums[left]) {
             //处理nums中不含目标值的情况
             return new int[]{-1, -1};

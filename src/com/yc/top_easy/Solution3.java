@@ -1,4 +1,4 @@
-package com.yc.top;
+package com.yc.top_easy;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.yc.top;
+package com.yc.top_easy;
 
 public class Solution {//整数反转⭐⭐⭐⭐⭐⭐⭐
 

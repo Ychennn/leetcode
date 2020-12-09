@@ -24,6 +24,8 @@ public class Solution7 {//基本计算器⭐⭐⭐⭐⭐(同时完成了乘除�
             if (Character.isDigit(c)) {
                 num = num * 10 + (c - '0');
             }
+
+            //如果直接判断空格跳过循环,如"2+3+ 4",会出现4没有如栈的情况,因为把" "当做sign判断
             if ((!Character.isDigit(c) && c != ' ') || i == s.length() - 1) {//防止空格干扰⭐⭐⭐⭐⭐
 
                 switch (sign) {
@@ -58,7 +60,7 @@ public class Solution7 {//基本计算器⭐⭐⭐⭐⭐(同时完成了乘除�
 
     public static void main(String[] args) {
         Solution7 solution7 = new Solution7();
-        String s = "2*(4)+(6)";
+        String s = "2+3+ 4";
         int i = solution7.calculate(s);
         System.out.println(i);
     }

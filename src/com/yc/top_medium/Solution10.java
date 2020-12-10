@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Solution10 {//螺旋矩阵⭐⭐⭐⭐⭐
 
+    //比螺旋矩阵2稍难
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
         if (matrix == null || matrix.length == 0) return res;

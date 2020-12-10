@@ -11,7 +11,7 @@ public class Solution11 {//螺旋矩阵2⭐⭐⭐⭐⭐
         int target = n * n;
         int[][] matrix = new int[n][n];
 
-        while (val <= target) {
+        while (val <= target) {//控制条件可改为l<=r||t<=b
             for (int i = l; i <= r; i++) matrix[t][i] = val++;//从左至右
             t++;//如{{1,2},{3,4}},第一个循环后{{1,2},{0,0}},第一层已经完成,上边界+1
 

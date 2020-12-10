@@ -12,7 +12,7 @@ public class Solution10 {//螺旋矩阵⭐⭐⭐⭐⭐
 
         int l = 0, t = 0, r = matrix[0].length - 1, b = matrix.length - 1;
 
-        while (true) {
+        while (true) {//控制条件可改为l<=r||t<=b
             for (int i = l; i <= r; i++) res.add(matrix[t][i]);//从左至右
             if (++t > b) break;
 

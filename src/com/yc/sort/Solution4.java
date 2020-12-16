@@ -13,25 +13,25 @@ public class Solution4 {//归并排序
 
     private void merge(int[] nums, int left, int mid, int right) {
         int[] tmpArr = new int[right - left + 1];//临时数组
-        int i = left, j = mid + 1;
+        int l = left, r = mid + 1;
         int idx = 0;
 
-        while (i <= mid && j <= right) {//合并两个有序的数组
-            if (nums[i] < nums[j]) {
-                tmpArr[idx++] = nums[i++];
+        while (l <= mid && r <= right) {//合并两个有序的数组
+            if (nums[l] < nums[r]) {
+                tmpArr[idx++] = nums[l++];
             } else {
-                tmpArr[idx++] = nums[j++];
+                tmpArr[idx++] = nums[r++];
             }
         }
-        while (i <= mid) {//将左边剩余元素填充进temp中
-            tmpArr[idx++] = nums[i++];
+        while (l <= mid) {//将左边剩余元素填充进temp中
+            tmpArr[idx++] = nums[l++];
         }
-        while (j <= right) {//将右序列剩余元素填充进temp中
-            tmpArr[idx++] = nums[j++];
+        while (r <= right) {//将右序列剩余元素填充进temp中
+            tmpArr[idx++] = nums[r++];
         }
 
-        for (int k = 0; k < tmpArr.length; k++) {//将排好序的数,赋值回原数组
-            nums[left + k] = tmpArr[k];
+        for (int i = 0; i < tmpArr.length; i++) {//将排好序的数,赋值回原数组
+            nums[left + i] = tmpArr[i];
         }
     }
 }

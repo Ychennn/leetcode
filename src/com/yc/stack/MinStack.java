@@ -33,10 +33,7 @@ class MinStack {//栈的最小值⭐⭐⭐⭐⭐⭐⭐
     }
 
     public int getMin() {
-        if (!minStack.isEmpty()) {
-            return minStack.peek();
-        }
-        return -1;
+        return minStack.isEmpty() ? -1 : minStack.peek();
     }
 
     public static void main(String[] args) {

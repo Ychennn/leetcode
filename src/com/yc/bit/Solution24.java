@@ -1,47 +1,41 @@
 package com.yc.bit;
 
-import java.util.HashSet;
+import java.util.Arrays;
 
-public class Solution24 {//只出现一次的数字2⭐⭐⭐⭐⭐⭐
+public class Solution24 {//只出现一次的数字3⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-    public int singleNumber(int[] nums) {
-        //核心思想为统计所有数,对应二进制位1的个数
-        //之后再通过sum%3,即获取到target在该位的二进制
-        int res = 0;
-        int sum;//临时保存所有数对应二进制位,1的个数之和
-        for (int i = 0; i < 32; i++) {
-            sum = 0;
-            for (int num : nums) {
-                sum += (num >> i) & 1;
-            }
-            //还原target
-            res |= (sum % 3) << i;
-        }
-        return res;
-    }
+    public int[] singleNumber(int[] nums) {
+        //核心思想在于用diff将数组分为2组,2个只出现一次的数字
+        //分别在这2组中,然后再用异或求出即为解
+        int diff = 0;
 
-    public int singleNumber2(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
-
-        long sumArray = 0;
         for (int num : nums) {
-            sumArray += num;
-            set.add(num);
+            diff ^= num;
+        }//此时diff为(2个只出现一次的数字)的异或的值,为1的地方即为不同
+
+
+        //这一步在于获取最右边的1,其他全部置为0,便于下面的数组分离
+        //只要能将diff改为二进制只包含一个1的值的方式都可以
+        diff &= (-diff);
+
+        int[] res = new int[2];
+        for (int num : nums) {
+            if ((diff & num) == 0) {
+                res[0] ^= num;
+            } else {//else部分可优化掉
+                res[1] ^= num;
+            }
         }
 
-        //核心推理公式：
-        //3×(a+b+c)−(a+a+a+b+b+b+c)=2c
-        long sumSet = 0;
-        for (int s : set) {
-            sumSet += s;
-        }
-        //注意后面必须用括号全部包住
-        return (int) ((sumSet * 3 - sumArray) / 2);
+        //这里可以优化将for循环获取的diff保存为tmp_diff,此时diff == tmp_diff == res[0] ^ res[1]
+        //res[1] = res[0]^tmpDiff;
+        return res;
     }
 
     public static void main(String[] args) {
         Solution24 solution24 = new Solution24();
-        int i = solution24.singleNumber(new int[]{2, 2, 3, 2});
-        System.out.println(i);
+        int[] nums = {1, 2, 1, 3, 2, 5};
+        int[] res = solution24.singleNumber(nums);
+        System.out.println(Arrays.toString(res));
     }
 }

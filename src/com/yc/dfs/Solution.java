@@ -12,7 +12,7 @@ public class Solution {//将有序数组转换为二叉搜索树
         int mid = (left + right) / 2;
         TreeNode root = new TreeNode(nums[mid]);
         root.left = dfs(nums, left, mid - 1);
-        root.right = dfs(nums , mid + 1, right);
+        root.right = dfs(nums, mid + 1, right);
         return root;
     }
 

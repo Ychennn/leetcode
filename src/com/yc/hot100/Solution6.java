@@ -2,7 +2,7 @@ package com.yc.hot100;
 
 import java.util.*;
 
-public class Solution6 {//前 K 个高频元素⭐⭐⭐⭐⭐⭐⭐
+public class Solution6 {//前K个高频元素⭐⭐⭐⭐⭐⭐⭐
 
     public int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();

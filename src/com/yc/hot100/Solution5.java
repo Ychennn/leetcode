@@ -4,22 +4,26 @@ import java.util.Arrays;
 
 public class Solution5 {//除自身以外数组的乘积⭐⭐⭐⭐⭐⭐
 
+    //见offer_medium--Solution2
     public int[] productExceptSelf(int[] nums) {//画图
+        if (nums.length == 0) return new int[0];
+        //res[i]最终为a[0]*a[1]* ... *a[i-1]*a[i+1]* ... *a[a.length-1]
         int[] res = new int[nums.length];
-        int left = 1, rigt = 1;
+        res[0] = 1;
 
-        for (int i = 0; i < nums.length; i++) {
-            res[i] = left;
-            left *= nums[i];
+        //第一轮循环后res[i] = a[0] * a[1]* ... * a[i-1]
+        //第一轮结束后res[a.length-1]已是最终结果
+        //所以第二轮循环从i=res.length-2开始
+        for (int i = 1; i < res.length; i++) {
+            res[i] = res[i - 1] * nums[i - 1];
         }
 
-        //如{1,2,3},第一轮循环res[3] = {1,1*1,1*1*2}
-        //第二轮循环从数组最后一个值开始,res[3] = {{1}*3*2,{1*1}*3,2}
-        for (int i = nums.length - 1; i > 0; i--) {
-            rigt *= nums[i];
-            res[i - 1] *= rigt;
+        int tmp = 1;
+        //思路和第一轮循环一致,res[i]再乘除a[i+1]*a[i+2]*...*a[a.length-1]
+        for (int i = res.length - 2; i >= 0; i--) {
+            tmp *= nums[i + 1];
+            res[i] *= tmp;
         }
-
         return res;
     }
 

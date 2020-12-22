@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Solution5 {//除自身以外数组的乘积⭐⭐⭐⭐⭐⭐
 
-    //见offer_medium--Solution2
     public int[] productExceptSelf(int[] nums) {//画图
         if (nums.length == 0) return new int[0];
         //res[i]最终为a[0]*a[1]* ... *a[i-1]*a[i+1]* ... *a[a.length-1]

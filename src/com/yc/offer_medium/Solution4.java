@@ -2,7 +2,7 @@ package com.yc.offer_medium;
 
 import java.util.Arrays;
 
-public class Solution4 {//n个骰子的点数
+public class Solution4 {//n个骰子的点数⭐⭐⭐⭐⭐⭐
 
     public double[] dicesProbability(int n) {//动态规划
         //pre[0]为n个骰子每个点数为1的概率,如n=1时pre[0]为点数为1的概率

@@ -10,7 +10,7 @@ public class Solution7 {//树的子结构⭐⭐⭐⭐⭐
     }
 
     private boolean helper(TreeNode A, TreeNode B) {
-        //如果B为空,说明B已经访问完了,确定是A的子结构
+        //如果B为空,说明B已经访问完了,即B是A的子结构
         if (B == null) return true;
 
         //如果B不为空A为空,或者这两个节点值不同,直接返回false
